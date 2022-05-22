@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -35,7 +36,20 @@ public class GameManager : MonoBehaviour
     {
         gameOver.SetActive(true);
 
-        Time.timeScale = 0;
+        Spawner spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
+        spawner.CancelInvoke();
         
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
     }
 }

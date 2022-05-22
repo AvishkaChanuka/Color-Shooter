@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
             Instantiate(bullets[2], bulletSpawnPosition.position, transform.rotation);
         }
 
-        if (playerHealth == 0)
+        if (playerHealth <= 0)
         {
             GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
             gameManager.GameOver();
